@@ -4,7 +4,12 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 
 @Module({
-  imports: [GraphQLModule.forRoot({})],
+  imports: [
+    GraphQLModule.forRoot({
+      debug: false,
+      playground: false,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
