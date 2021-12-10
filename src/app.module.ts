@@ -7,8 +7,7 @@ import { CatsModule } from './cats/cats.module';
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      debug: false,
-      playground: false,
+      include: [CatsModule],
     }),
     CatsModule,
   ],
