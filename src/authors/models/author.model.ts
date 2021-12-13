@@ -6,10 +6,10 @@ export class Author {
   @Field((type) => Int)
   id: number;
 
-  @Field({ nullable: true })
+  @Field({ nullable: true, description: `Author firstName` })
   firstName?: string;
 
-  @Field({ nullable: true })
+  @Field({ nullable: true, description: `Author lastName` })
   lastName?: string;
 
   @Field((type) => [Post])
