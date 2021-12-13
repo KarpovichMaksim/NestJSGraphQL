@@ -23,8 +23,9 @@ export class AuthorsResolver {
     return this.authorsService.findOneById(id);
   }
 
-  @ResolveField('posts', (returns) => [Post])
-  async getPosts(@Parent() author: Author) {
+  @Resolver('Author')
+  @ResolveField()
+  async getPosts(@Parent() author) {
     const { id } = author;
     return this.postsService.findAll({ authorId: id });
   }
