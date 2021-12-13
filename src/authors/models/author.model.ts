@@ -12,6 +12,6 @@ export class Author {
   @Field({ nullable: true, description: `Author lastName` })
   lastName?: string;
 
-  @Field((type) => [Post])
+  @Field((type) => [Post], { nullable: 'items' })
   posts: Post[];
 }
