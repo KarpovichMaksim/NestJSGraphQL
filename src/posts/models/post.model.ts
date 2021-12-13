@@ -5,7 +5,7 @@ export class Post {
   @Field((type) => Int)
   id: number;
 
-  @Field()
+  @Field({ nullable: true, description: `Post title` })
   title: string;
 
   @Field((type) => Int, { nullable: true })
