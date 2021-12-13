@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { CatsModule } from './cats/cats.module';
 import { AuthorsService } from './authors/authors.service';
 import { PostsService } from './posts/posts.service';
+import { AuthorsModule } from './authors/authors.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { PostsService } from './posts/posts.service';
       include: [CatsModule],
     }),
     CatsModule,
+    AuthorsModule,
   ],
   controllers: [AppController],
   providers: [AppService, AuthorsService, PostsService],
