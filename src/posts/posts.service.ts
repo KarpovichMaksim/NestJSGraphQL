@@ -3,6 +3,9 @@ import { Post } from './models/post.model';
 
 @Injectable()
 export class PostsService {
+  upvoteById(arg0: { id: number }) {
+    throw new Error('Method not implemented.');
+  }
   async create(data: Post): Promise<Post> {
     return {} as any;
   }
