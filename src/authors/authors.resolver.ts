@@ -8,6 +8,7 @@ import {
   Resolver,
 } from '@nestjs/graphql';
 import { Post } from 'src/posts/models/post.model';
+import { UpvotePostInput } from 'src/posts/models/upvote-post.model';
 import { PostsService } from 'src/posts/posts.service';
 import { AuthorsService } from './authors.service';
 import { Author } from './models/author.model';
@@ -25,7 +26,10 @@ export class AuthorsResolver {
   }
 
   @Mutation((returns) => Post)
-  async upvotePost(@Args({ name: 'postId', type: () => Int }) postId: number) {
+  async upvotePost(
+    @Args('upvotePostData') upvotePostData: UpvotePostInput,
+    postId: number,
+  ) {
     return this.postsService.upvoteById({ id: postId });
   }
 
