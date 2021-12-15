@@ -1,6 +1,7 @@
 import {
   Args,
   Int,
+  Mutation,
   Parent,
   Query,
   ResolveField,
@@ -21,6 +22,11 @@ export class AuthorsResolver {
   @Query()
   async author(@Args('id') id: number) {
     return this.authorsService.findOneById(id);
+  }
+
+  @Mutation((returns) => Post)
+  async upvotePost(@Args({ name: 'postId', type: () => Int }) postId: number) {
+    return this.postsService.upvoteById({ id: postId });
   }
 
   @ResolveField()
